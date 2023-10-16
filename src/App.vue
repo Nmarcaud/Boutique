@@ -10,8 +10,8 @@
 <script setup lang="ts">
 import TheHeader from './components/TheHeader.vue'
 import TheFooter from './components/TheFooter.vue'
-import TheShop from './components/TheShop.vue'
-import TheCart from './components/TheCart.vue'
+import TheShop from './components/Shop/TheShop.vue'
+import TheCart from './components/Cart/TheCart.vue'
 </script>
 
 <style lang="scss">

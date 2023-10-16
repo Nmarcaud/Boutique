@@ -1,6 +1,6 @@
 <template>
-  <div class="b4">
-    <h1>Cart</h1>
+  <div class="product mb-10 b5">
+    <h1>Cart Product</h1>
   </div>
 </template>
 
@@ -9,4 +9,7 @@
 </script>
 
 <style lang="scss">
+.product {
+
+}
 </style>
