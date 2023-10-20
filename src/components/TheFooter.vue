@@ -8,7 +8,7 @@
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 footer {
   background-color: var(--grey-3);
   color: var(--text-primary-color);
