@@ -54,6 +54,12 @@
     color: var(--text-color);
     background-color: var(--grey-1);
   }
+
+  input {
+    border: var(--border);
+    border-radius: var(--border-radius);
+    padding: 8px 15px;
+  }
   
   // flex
   
@@ -121,6 +127,10 @@
   .mr-20 {
     margin-right: 10px;
   }
+
+  .mb-20 {
+    margin-bottom: 10px;
+  }
   
   .m-30 {
     margin: 30px;
@@ -159,4 +169,10 @@
   &:hover {
     background-color: var(--success-2);
   }
+}
+
+.card {
+  background-color: white;
+  border: var(--border);
+  border-radius: var(--border-radius);
 }
