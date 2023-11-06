@@ -2,6 +2,7 @@
   <div class="d-flex flex-row">
     <ShopFilters
       :filters="$props.filters"
+      :number-of-products="products.length"
       class="shop-filter"
       @update-filter="emit('updateFilter', $event)"
     />
@@ -15,8 +16,8 @@
 
 <script setup lang="ts">
 import type { FilterUpdate, FiltersInterface, ProductInterface } from '@/interfaces';
-import ShopProductList from '@/components/Shop/ShopProductList.vue';
-import ShopFilters from '@/components/Shop/ShopFilters.vue';
+import ShopProductList from '@/features/boutique/components/Shop/ShopProductList.vue';
+import ShopFilters from '@/features/boutique/components/Shop/ShopFilters.vue';
 
 defineProps<{
   products: ProductInterface[];
@@ -31,6 +32,6 @@ const emit = defineEmits<{
 
 <style lang="scss" scoped>
 .shop-filter{
-  flex: 0 0 200px;
+  flex: 0 0 230px;
 }
 </style>

@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import CartProduct from '@/components/Cart/CartProduct.vue';
+import CartProduct from '@/features/boutique/components/Cart/CartProduct.vue';
 import type { ProductCartInterface } from '@/interfaces';
 
 type Props = {

@@ -17,7 +17,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import CartProductList from '@/components/Cart/CartProductList.vue';
+import CartProductList from '@/features/boutique/components/Cart/CartProductList.vue';
 import type { ProductCartInterface } from '@/interfaces';
 
 type Props = {
