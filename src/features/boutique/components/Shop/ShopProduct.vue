@@ -11,7 +11,7 @@
         <strong class="flex-fill">Prix : {{ product.price }}€</strong>
         <button
           class="btn btn-primary"
-          @click="emit('add-product-to-cart', product.id)"
+          @click="emit('add-product-to-cart', product._id)"
         > 
           Ajouter au panier
         </button>
@@ -28,7 +28,7 @@ defineProps<{
 }>();
 
 const emit = defineEmits<{
-  (e: 'add-product-to-cart', productId: number): void;
+  (e: 'add-product-to-cart', productId: string): void;
 }>();
 </script>
 

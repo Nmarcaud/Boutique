@@ -21,11 +21,10 @@
 
 <script setup lang="ts">
 import { computed, reactive } from 'vue';
+import axios from 'axios';
 
 import TheShop from '@/features/boutique/components/Shop/TheShop.vue'
 import TheCart from '@/features/boutique/components/Cart/TheCart.vue'
-
-import data from '@/data/product';
 
 import type { ProductInterface, ProductCartInterface, FiltersInterface, FilterUpdate } from '@/interfaces';
 import { DEFAULT_FILTERS } from '@/features/boutique/data/filters';
@@ -35,14 +34,18 @@ const state = reactive<{
   cart: ProductCartInterface[];
   filters: FiltersInterface;
 }>({
-  products: data,
+  products: [],
   cart: [],
   filters: { ...DEFAULT_FILTERS },
 });
 
-function addProductToCart(productId: number): void {
-  const product = state.products.find(product => product.id === productId);
-  const productInCart = state.cart.find(product => product.id === productId);
+const products = await axios.get('https://restapi.fr/api/projetproducts').then(response => response.data);
+
+state.products = Array.isArray(products) ? products : [products];
+
+function addProductToCart(productId: string): void {
+  const product = state.products.find(product => product._id === productId);
+  const productInCart = state.cart.find(product => product._id === productId);
   if (product) {
     if (productInCart) {
       productInCart.quantity++;
@@ -52,12 +55,12 @@ function addProductToCart(productId: number): void {
   }
 }
 
-function removeProductFromCartList(productId: number): void {
-  state.cart = state.cart.filter(product => product.id !== productId);
+function removeProductFromCartList(productId: string): void {
+  state.cart = state.cart.filter(product => product._id !== productId);
 }
 
-function removeProductFromCart(productId: number): void {
-  const productInCart = state.cart.find(product => product.id === productId);
+function removeProductFromCart(productId: string): void {
+  const productInCart = state.cart.find(product => product._id === productId);
   if (productInCart) {
     productInCart.quantity--;
     if (productInCart.quantity === 0) {

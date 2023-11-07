@@ -6,7 +6,9 @@
       @navigate="navigate"
     />
     <div class="app-content">
-      <Component :is="pages[state.page]" />
+      <Suspense>
+        <Component :is="pages[state.page]" />
+      </Suspense>
     </div>
     <TheFooter class="footer"/>
   </div>
@@ -20,11 +22,12 @@ import TheFooter from '@/components/TheFooter.vue'
 import TheBoutique from '@/features/boutique/TheBoutique.vue'
 import TheAdmin from '@/features/admin/TheAdmin.vue'
 import type { Page } from '@/interfaces';
+// import { seed } from '@/data/seed';
 
 const state = reactive<{
   page: Page;
 }>({
-  page: 'TheAdmin',
+  page: 'TheBoutique',
 });
 
 const pages: { [s: string]: C } = {
@@ -35,6 +38,8 @@ const pages: { [s: string]: C } = {
 function navigate(page: Page): void {
   state.page = page;
 }
+
+// seed('projetproducts');
 </script>
 
 <style lang="scss">

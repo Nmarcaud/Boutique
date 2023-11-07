@@ -26,7 +26,7 @@ type Props = {
 const props = defineProps<Props>();
 
 type Emits = {
-  (e: 'remove-product-from-cart', productId: number): void;
+  (e: 'remove-product-from-cart', productId: string): void;
   (e: 'commander'): void;
 };
 const emit = defineEmits<Emits>();

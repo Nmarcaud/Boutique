@@ -7,7 +7,7 @@
     </span>
     <button
       class="btn btn-danger"
-      @click="emit('remove-product-from-cart', props.product.id)"
+      @click="emit('remove-product-from-cart', props.product._id)"
     >
       Supprimer
     </button>
@@ -23,7 +23,7 @@ type Props = {
 const props = defineProps<Props>();
 
 type Emits = {
-  (e: 'remove-product-from-cart', productId: number): void;
+  (e: 'remove-product-from-cart', productId: string): void;
 };
 const emit = defineEmits<Emits>();
 </script>

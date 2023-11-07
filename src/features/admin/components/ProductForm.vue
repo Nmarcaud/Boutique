@@ -4,7 +4,11 @@
     <form @submit="trySubmit">
       <div class="d-flex flex-column mb-20">
         <label class="mb-5">*Titre</label>
-        <input v-model="title.value.value" type="text">
+        <input
+          v-model="title.value.value"
+          type="text"
+          ref="firstInput"
+        >
         <small v-if="title.errorMessage.value" class="form-error">{{ title.errorMessage.value }}</small>
       </div>
 
@@ -44,17 +48,25 @@
 </template>
 
 <script setup lang="ts">
-import { z } from 'zod'
+import { z } from 'zod';
+import { onMounted, ref } from 'vue';
 import { useField, useForm } from 'vee-validate';
 import { toTypedSchema } from '@vee-validate/zod';
+import axios from 'axios';
+
+const firstInput = ref<HTMLInputElement | null>(null);
+
+onMounted(() => {
+  firstInput.value?.focus();
+});
 
 const required = { required_error: 'Veuillez renseigner ce champ' };
 
 const validationSchema = toTypedSchema(z.object({
   title: z.string(required).min(1, {
     message: 'Le titre doit faire au moins 1 caratère',
-  }).max(10, {
-    message: 'Le titre doit faire moins de 10 caratères',
+  }).max(20, {
+    message: 'Le titre doit faire moins de 20 caratères',
   }),
   image: z.string(required),
   price: z.number(required).min(0, {
@@ -78,8 +90,15 @@ const price = useField('price');
 const description = useField('description');
 const category = useField('category');
 
-const trySubmit = handleSubmit(async (values) => {
-  console.log(values);
+const trySubmit = handleSubmit(async (values, { resetForm }) => {
+  try {
+    axios.post('https://restapi.fr/api/projetproducts', values);
+    resetForm();
+    title.setTouched(true);
+    firstInput.value?.focus();
+  } catch (error) {
+    console.log(error);
+  }
 });
 </script>
 

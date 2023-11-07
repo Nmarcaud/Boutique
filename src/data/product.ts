@@ -5,7 +5,6 @@ function getRandomIntBetween(min: number, max: number) {
 
 export default [
   {
-    id: 1,
     image: `https://picsum.photos/id/${getRandomIntBetween(0,1000)}/600/300`,
     title: 'Macbook Pro',
     description:
@@ -14,7 +13,6 @@ export default [
     category: 'desktop'
   },
   {
-    id: 2,
     image: `https://picsum.photos/id/${getRandomIntBetween(0,1000)}/600/300`,
     title: 'Levono Pro',
     description:
@@ -23,7 +21,6 @@ export default [
     category: 'desktop'
   },
   {
-    id: 3,
     image: `https://picsum.photos/id/${getRandomIntBetween(0,1000)}/600/300`,
     title: 'Rider',
     description:
@@ -32,7 +29,6 @@ export default [
     category: 'gamer'
   },
   {
-    id: 4,
     image: `https://picsum.photos/id/${getRandomIntBetween(0,1000)}/600/300`,
     title: 'LDLC benolo',
     description:
@@ -41,7 +37,6 @@ export default [
     category: 'streaming'
   },
   {
-    id: 5,
     image: `https://picsum.photos/id/${getRandomIntBetween(0,1000)}/600/300`,
     title: 'Asus gamer',
     description:
@@ -50,7 +45,6 @@ export default [
     category: 'gamer'
   },
   {
-    id: 6,
     image: `https://picsum.photos/id/${getRandomIntBetween(0,1000)}/600/300`,
     title: 'Rog desktop',
     description:
@@ -59,7 +53,6 @@ export default [
     category: 'streaming'
   },
   {
-    id: 7,
     image: `https://picsum.photos/id/${getRandomIntBetween(0,1000)}/600/300`,
     title: 'MSI play',
     description:
@@ -68,7 +61,6 @@ export default [
     category: 'gamer'
   },
   {
-    id: 8,
     image: `https://picsum.photos/id/${getRandomIntBetween(0,1000)}/600/300`,
     title: 'Think pad',
     description:
@@ -76,4 +68,4 @@ export default [
     price: 899,
     category: 'desktop'
   },
-] as ProductInterface[];
+];

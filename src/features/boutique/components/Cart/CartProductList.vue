@@ -2,9 +2,9 @@
   <div class="d-flex flex-column">
     <CartProduct
       v-for="product in props.cart"
-      :key="product.id"
+      :key="product._id"
       :product="product"
-      @remove-product-from-cart="emit('remove-product-from-cart', product.id)"
+      @remove-product-from-cart="emit('remove-product-from-cart', product._id)"
     />
   </div>
 </template>
@@ -19,7 +19,7 @@ type Props = {
 const props = defineProps<Props>();
 
 type Emits = {
-  (e: 'remove-product-from-cart', productId: number): void;
+  (e: 'remove-product-from-cart', productId: string): void;
 };
 const emit = defineEmits<Emits>();
 </script>

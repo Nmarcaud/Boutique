@@ -3,9 +3,9 @@
     <div class="grid p-20">
       <ShopProduct 
         v-for="product of products" 
-        :key="product.id"
+        :key="product._id"
         :product="product"
-        @add-product-to-cart="emit('add-product-to-cart', product.id)"
+        @add-product-to-cart="emit('add-product-to-cart', product._id)"
       />
   </div>
   </template>
@@ -27,7 +27,7 @@ defineProps<{
   products: ProductInterface[];
 }>();
 const emit = defineEmits<{
-  (e: 'add-product-to-cart', productId: number): void;
+  (e: 'add-product-to-cart', productId: string): void;
 }>();
 </script>
 
